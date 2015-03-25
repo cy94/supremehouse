@@ -12,4 +12,4 @@ class Service(models.Model):
 
 class ProductImage(models.Model):
 	service = models.ForeignKey(Service, related_name='images')
-	image = models.ImageField(upload_to=get_upload_path)
+	image = models.ImaegField(upload_to=get_upload_path)
