@@ -10,6 +10,11 @@ class Service(models.Model):
 	name = models.CharField(max_length=30)
 	description = models.TextField()
 
-class ProductImage(models.Model):
+class ServiceImage(models.Model):
 	service = models.ForeignKey(Service, related_name='images')
-	image = models.ImaegField(upload_to=get_upload_path)
+	image = models.ImageField(upload_to=get_upload_path)
+
+	def image_tag(self):
+	    return u'<img src="%s" />' % self.url
+	image_tag.short_description = 'Image'
+	image_tag.allow_tags = True
